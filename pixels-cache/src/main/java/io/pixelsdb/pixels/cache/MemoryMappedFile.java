@@ -407,4 +407,7 @@ public class MemoryMappedFile
     {
         return size;
     }
+
+    public long getAddress() { return addr; }
+
 }
