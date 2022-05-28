@@ -19,6 +19,7 @@
  */
 package io.pixelsdb.pixels.common.physical;
 
+import io.pixelsdb.pixels.common.physical.io.MockReader;
 import io.pixelsdb.pixels.common.physical.io.PhysicalHDFSReader;
 import io.pixelsdb.pixels.common.physical.io.PhysicalLocalReader;
 import io.pixelsdb.pixels.common.physical.io.PhysicalS3Reader;
@@ -53,6 +54,9 @@ public class PhysicalReaderUtil
                 break;
             case s3:
                 reader = new PhysicalS3Reader(storage, path);
+                break;
+            case mock:
+                reader = new MockReader(storage, path);
                 break;
             default:
                 throw new IOException("Storage scheme '" + storage.getScheme() + "' is not supported.");
