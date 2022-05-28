@@ -22,6 +22,7 @@ package io.pixelsdb.pixels.common.physical;
 import com.google.common.collect.ImmutableList;
 import io.pixelsdb.pixels.common.physical.storage.HDFS;
 import io.pixelsdb.pixels.common.physical.storage.LocalFS;
+import io.pixelsdb.pixels.common.physical.storage.Mock;
 import io.pixelsdb.pixels.common.physical.storage.S3;
 import io.pixelsdb.pixels.common.utils.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
@@ -143,6 +144,10 @@ public class StorageFactory
         else if (scheme == Storage.Scheme.file)
         {
             storage = new LocalFS();
+        }
+        else if (scheme == Storage.Scheme.mock)
+        {
+            storage = new Mock();
         }
         if (storage != null)
         {

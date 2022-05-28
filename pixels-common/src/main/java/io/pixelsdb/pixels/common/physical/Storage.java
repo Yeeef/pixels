@@ -42,7 +42,8 @@ public interface Storage
     {
         hdfs, // HDFS
         file, // local fs
-        s3; // Amazon S3
+        s3,
+        mock; // Amazon S3
 
         /**
          * Case insensitive parsing from String to enum value.
